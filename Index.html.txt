@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MasseurMatch | Coming Soon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section class="coming-soon">
+    <div class="overlay"></div>
+    <div class="content">
+      <img src="logo.png" alt="MasseurMatch Logo" class="logo" />
+      <h1>INTELLIGENT CONNECTION.<br>HUMAN TOUCH</h1>
+      <p class="subtext">masseurmatch<br>COMING SOON!</p>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+      <div class="chat-header">💬 MasseurMatch Assistant</div>
+      <div class="chat-body" id="chatBody">
+        <div class="bot-msg">Hey there 👋 I'm your MasseurMatch assistant.<br>Want to be the first to know when we launch?</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
