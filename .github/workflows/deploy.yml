@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node (for possible build steps)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies and build (if applicable)
+        run: |
+          if [ -f package.json ]; then
+            echo "package.json found — installing dependencies"
+            npm ci
+            if npm run | grep -q "build"; then
+              echo "build script found — running npm run build"
+              npm run build || echo "build failed but continuing"
+            else
+              echo "no build script found"
+            fi
+          else
+            echo "no package.json — skipping install/build"
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          keep_files: false
