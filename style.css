@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+:root{
+  --bg-1: #23415a;
+  --bg-2: #071622;
+  --panel: #0e1b24;
+  --panel-2: #0a293d;
+  --accent: #1a567b;
+  --accent-bright: #2680b6;
+  --text: #ffffff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: var(--text);
+  background: radial-gradient(circle at bottom left, var(--bg-1), var(--bg-2) 70%);
+}
+
+.coming-soon{
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.overlay{
+  position: absolute;
+  inset: 0;
+  background-image: url('https://cdn.jsdelivr.net/gh/JulianLaval/canvas-particle-network/particle-network.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.content{
+  z-index: 1;
+  padding: 2rem;
+}
+
+.logo{ width: 7.5rem; max-width: 100%; margin-bottom: 1.25rem; }
+
+h1{ font-weight: 500; letter-spacing: 1.5px; margin: 0; }
+.subtext{ font-weight: 300; margin-top: 12px; font-size: 1.05rem; }
+
+/* Chatbot */
+.chatbot{
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: clamp(260px, 88vw, 360px);
+  max-width: 360px;
+  background: var(--panel);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  font-size: 0.95rem;
+  overflow: hidden;
+}
+
+.chat-header{
+  background: var(--panel-2);
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.chat-body{
+  flex: 1 1 180px;
+  padding: 12px;
+  overflow-y: auto;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bot-msg, .user-msg{
+  background: rgba(18,52,77,0.9);
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  line-height: 1.4;
+  max-width: 85%;
+}
+.user-msg{ background: var(--accent); align-self: flex-end; }
+
+.chat-input{ display: flex; border-top: 1px solid var(--panel-2); }
+.chat-input input{
+  flex: 1; padding: 10px 12px; border: none; outline: none; background: var(--panel); color: var(--text);
+}
+.chat-input button{
+  background: var(--accent); border: none; color: white; padding: 0 16px; cursor: pointer; transition: background .18s ease;
+}
+.chat-input button:hover{ background: var(--accent-bright); }
+
+/* Small helper for screen-reader only labels */
+.visually-hidden{ position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
+
+@media (max-width: 480px){
+  .chatbot{ right: 0.5rem; left: 0.5rem; bottom: 1rem; }
+}

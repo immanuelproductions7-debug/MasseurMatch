@@ -1,0 +1,61 @@
+// Firebase Setup (replace with your own Firebase config)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Chat logic
+const chatBody = document.getElementById("chatBody");
+const userInput = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+
+let step = 0;
+let userData = {};
+
+sendBtn.addEventListener("click", sendMessage);
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
+});
+
+function appendMessage(text, sender) {
+  const msg = document.createElement("div");
+  msg.classList.add(sender === "user" ? "user-msg" : "bot-msg");
+  msg.textContent = text;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+async function sendMessage() {
+  const text = userInput.value.trim();
+  if (!text) return;
+  appendMessage(text, "user");
+  userInput.value = "";
+
+  if (step === 0) {
+    appendMessage("Awesome! What’s your name?", "bot");
+    step++;
+  } else if (step === 1) {
+    userData.name = text;
+    appendMessage(`Nice to meet you, ${text}! Can I get your email?`, "bot");
+    step++;
+  } else if (step === 2) {
+    userData.email = text;
+    appendMessage("Got it! Would you like to leave any message or interest note?", "bot");
+    step++;
+  } else if (step === 3) {
+    userData.message = text;
+    await addDoc(collection(db, "leads"), userData);
+    appendMessage("Thanks! You’re all set. We’ll reach out when we launch 🚀", "bot");
+    step = 0;
+    userData = {};
+  }
+}
