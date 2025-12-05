@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MasseurMatch | Services</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<nav class="navbar">
+			<div class="nav-container">
+				<a href="index.html" class="nav-logo">MasseurMatch</a>
+				<ul class="nav-menu">
+					<li><a href="index.html" class="nav-link">Home</a></li>
+					<li><a href="services.html" class="nav-link active">Services</a></li>
+					<li><a href="about.html" class="nav-link">About</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<main class="page-container" role="main">
+			<div class="overlay" aria-hidden="true"></div>
+
+			<section class="page-content" aria-labelledby="services-title">
+				<h1 id="services-title">Our Services</h1>
+				<p class="page-subtitle">Connecting skilled massage therapists with clients who need them.</p>
+
+				<div class="services-grid">
+					<div class="service-card">
+						<div class="service-icon">💆</div>
+						<h3>For Massage Therapists</h3>
+						<p>Find new clients, manage your schedule, and grow your practice with our intelligent matching platform.</p>
+						<ul class="service-features">
+							<li>Client matching</li>
+							<li>Booking management</li>
+							<li>Payment processing</li>
+							<li>Reviews & ratings</li>
+						</ul>
+					</div>
+
+					<div class="service-card">
+						<div class="service-icon">🧘</div>
+						<h3>For Clients</h3>
+						<p>Discover qualified massage therapists in your area and book appointments that fit your schedule.</p>
+						<ul class="service-features">
+							<li>Find local therapists</li>
+							<li>View profiles & reviews</li>
+							<li>Easy booking</li>
+							<li>Secure payments</li>
+						</ul>
+					</div>
+
+					<div class="service-card">
+						<div class="service-icon">🤝</div>
+						<h3>Smart Matching</h3>
+						<p>Our AI-powered algorithm matches clients with the perfect therapist based on preferences and availability.</p>
+						<ul class="service-features">
+							<li>Personalized matches</li>
+							<li>Location-based search</li>
+							<li>Specialty filters</li>
+							<li>Real-time availability</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Chatbot -->
+			<aside class="chatbot" aria-labelledby="chat-heading">
+				<div class="chat-header" id="chat-heading">💬 MasseurMatch Assistant</div>
+				<div class="chat-body" id="chatBody" aria-live="polite">
+					<div class="bot-msg">Hey there 👋 I'm your MasseurMatch assistant.<br />Want to be the first to know when we launch?</div>
+				</div>
+				<form class="chat-input" id="chatForm" aria-label="Chat with MasseurMatch">
+					<label for="userInput" class="visually-hidden">Message</label>
+					<input type="text" id="userInput" name="message" autocomplete="off" placeholder="Type your message..." />
+					<button type="submit" id="sendBtn">Send</button>
+				</form>
+			</aside>
+
+		</main>
+
+		<script type="module" src="script.js"></script>
+		<noscript>
+			<p style="color:#fff; text-align:center; padding:1rem;">This site requires JavaScript for the chatbot interaction.</p>
+		</noscript>
+	</body>
+</html>
