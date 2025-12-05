@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MasseurMatch | About Us</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<nav class="navbar">
+			<div class="nav-container">
+				<a href="index.html" class="nav-logo">MasseurMatch</a>
+				<ul class="nav-menu">
+					<li><a href="index.html" class="nav-link">Home</a></li>
+					<li><a href="services.html" class="nav-link">Services</a></li>
+					<li><a href="about.html" class="nav-link active">About</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<main class="page-container" role="main">
+			<div class="overlay" aria-hidden="true"></div>
+
+			<section class="page-content" aria-labelledby="about-title">
+				<h1 id="about-title">About MasseurMatch</h1>
+				<p class="page-subtitle">Bridging the gap between skilled therapists and those who need healing.</p>
+
+				<div class="about-content">
+					<div class="about-section">
+						<h2>Our Mission</h2>
+						<p>
+							At MasseurMatch, we believe that everyone deserves access to quality massage therapy. 
+							We're building the intelligent platform that connects skilled massage therapists with clients who need their expertise. 
+							By combining human touch with smart technology, we're making wellness more accessible.
+						</p>
+					</div>
+
+					<div class="about-section">
+						<h2>Why We Started</h2>
+						<p>
+							Finding a good massage therapist shouldn't be a guessing game. Therapists shouldn't have to juggle multiple platforms to find clients. 
+							We saw a gap in the market and decided to bridge it with a solution that works for everyone.
+						</p>
+					</div>
+
+					<div class="about-section">
+						<h2>What Makes Us Different</h2>
+						<ul class="about-list">
+							<li><strong>Intelligent Matching:</strong> Our AI learns preferences and specialties to make perfect connections.</li>
+							<li><strong>Therapist-First Design:</strong> Built with feedback from massage professionals.</li>
+							<li><strong>Client Peace of Mind:</strong> Verified therapists, transparent pricing, secure payments.</li>
+							<li><strong>Community Focused:</strong> Supporting local wellness practitioners.</li>
+						</ul>
+					</div>
+
+					<div class="about-section">
+						<h2>Our Team</h2>
+						<p>
+							We're a diverse team of engineers, wellness advocates, and business leaders passionate about connecting people with healing. 
+							We're launching soon—stay tuned!
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Chatbot -->
+			<aside class="chatbot" aria-labelledby="chat-heading">
+				<div class="chat-header" id="chat-heading">💬 MasseurMatch Assistant</div>
+				<div class="chat-body" id="chatBody" aria-live="polite">
+					<div class="bot-msg">Hey there 👋 I'm your MasseurMatch assistant.<br />Want to be the first to know when we launch?</div>
+				</div>
+				<form class="chat-input" id="chatForm" aria-label="Chat with MasseurMatch">
+					<label for="userInput" class="visually-hidden">Message</label>
+					<input type="text" id="userInput" name="message" autocomplete="off" placeholder="Type your message..." />
+					<button type="submit" id="sendBtn">Send</button>
+				</form>
+			</aside>
+
+		</main>
+
+		<script type="module" src="script.js"></script>
+		<noscript>
+			<p style="color:#fff; text-align:center; padding:1rem;">This site requires JavaScript for the chatbot interaction.</p>
+		</noscript>
+	</body>
+</html>
